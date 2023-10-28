@@ -1,28 +1,24 @@
 <%- include("../templates/encabezado") %>
 <%- include("../templates/menu") %>
 <div class="container mt-5">
-    <form action="/editarUsuario" method="post" enctype="multipart/form-data">
+    <form action="/login" method="post">
         <div class="card">
             <div class="card-header" style="background-color: antiquewhite;">
-                <h1>MODIFICAR USUARIO</h1>
+                <center><h1> INICIAR SESIÓN</h1></center>
             </div>
             <div class="card-body">
-                <input type="hidden" name="id" id="id" value="<%= user.id %>">
-                <input type="hidden" name="foto" id="foto" value="<%= user.foto %>">
-                <input type="hidden" name="fotoVieja" id="fotoVieja" value="<%= user.foto %>">
-
-                <input type="hidden" name="passwordAnterior" id="passwordAnterior" value="<%= user.password %>">
-                <input type="hidden" name="salt" id="salt" value="<%= user.salt %>">
-
-                <input class="form-control mb-3" value="<%= user.nombre %>" type="text" name="nombre" id="nombre" placeholder="Nombre" autofocus>
-                <input class="form-control mb-3" value="<%= user.usuario %>" type="text" name="usuario" id="usuario" placeholder="Usuario">
-                <input class="form-control mb-3" value="" type="text" name="password" id="password" placeholder="Password nuevo o dejarlo en blanco">
-                <input class="form-control mb-3" type="file" name="foto" id="foto">
+                <input class="form-control mb-3" type="text" name="usuario" id="usuario" placeholder="Usuario" >
+                <input class="form-control mb-3" type="text" name="password" id="password" placeholder="Password" >
+            
             </div>
             <div class="card-footer">
-                <button class="form-control btn btn-success">Modificar Usuario</button>
+                <button class="form-control btn btn-success" >INICIAR SESIÓN</button>
+
+                <center><a href="/nuevousuario" class="form-control btn btn-dark mt-3">REGISTRARSE</a></center>
+
             </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
         </div>
+
     </form>
 </div>
 <%- include("../templates/pie") %>
