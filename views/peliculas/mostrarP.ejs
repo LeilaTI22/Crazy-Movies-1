@@ -1,36 +1,37 @@
 <%- include("../template/encabezado") %>
 <%- include("../template/menu") %>
+
 <div class="container">
     <div class="card mt-5">
         <div class="card-header" style="background-color: antiquewhite;">
-            <h1>USUARIOS</h1>
+            <h1>PELICULAS</h1>
         </div>
         <div class="card-body">
             <table class="table table-hover">
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Nombre</th>
-                        <th>Usuario</th>
-                        <th>Password</th>
+                        <th>Titulo</th>
+                        <th>Duración</th>
+                        <th>Productora</th>
                         <th>Foto</th>
-                        <th>Editar/Borrar</th>
+                        <th>Editar/Borrar/Pedir</th>
                     </tr>
                 </thead>
                 <tbody>
                     <%
-                    users.forEach((usuario,i) => {
+                    pelis.forEach((pelicula,i) => {
                     %>
                     <tr>
                         <td><%= (i+1)*100 %></td>
-                        <td><%= usuario.nombre %></td>
-                        <td><%= usuario.usuario %></td>
-                        <td>********</td>
-                        <td><img src="/images/<%= usuario.foto %>" width="100px"></td>
-
+                        <td><%= pelicula.titulo %></td>
+                        <td><%= pelicula.duracion %></td>
+                        <td><%= pelicula.productora %></td>
+                        <td><img src="/images/<%= pelicula.foto %>" width="100px"></td>
                         <td>
-                            <a href="/editarUsuario/<%= usuario.id %>">Editar</a>
-                            <a href="/borrarUsuario/<%= usuario.id %>">Borrar</a>
+                            <a href="/editarPelicula/<%= pelicula.id %>">Editar</a>
+                            <a href="/borrarPelicula/<%= pelicula.id %>">Borrar</a>
+                            <a href="/pedirPelicula/<%= pelicula.id %>">Pedir</a>
                         </td>
                     </tr>
                     <%

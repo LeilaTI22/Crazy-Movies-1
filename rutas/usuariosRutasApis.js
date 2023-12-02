@@ -18,7 +18,7 @@ ruta.get("/nuevousuario",(req,res)=>{
 ruta.post("/api/nuevousuario",async (req,res)=>{
     var error= await nuevousuario(req.body);
     if(error==0){
-        res.status(200).json("Usuario registrado aesthetico")
+        res.status(200).json("Usuario registrado")
     }else{
         res.status(400).json("ERROR AL REGISTRAR USUARIO")
     }

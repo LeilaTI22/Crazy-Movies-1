@@ -14,20 +14,16 @@ ruta.get("/login", async(req,res)=>{
 
 ruta.post("/login", async(req,res)=>{
   var user = await login(req.body);
-  console.log(user);
   if(user == undefined){
       res.redirect("/login");
   }else{
-    //console.log("else");
     if(user.admin){
-        //console.log("admin");
         req.session.admin=req.body.usuario;
-        res.redirect("/nuevoProducto")
+        res.redirect("/nuevaPelicula");
     }else{
-        console.log("usuario");
         req.session.usuario=req.body.usuario;
         console.log(req.session.usuario);
-        res.redirect("/")
+        res.redirect("/mostrarPeliculas")
     }
   }
 });
@@ -39,7 +35,6 @@ ruta.get("/logout",(req,res)=>{
 
 ruta.get("/", usuario, async (req, res) => {
     var users = await mostrarUsuarios();
-    //console.log(users);
     res.render("usuarios/mostrar", {users});
 })
 ruta.get("/nuevousuario",(req,res)=>{
@@ -47,11 +42,8 @@ ruta.get("/nuevousuario",(req,res)=>{
 }); 
 
 ruta.post("/nuevousuario", subirArchivo(), async (req,res)=>{
-    //console.log(req.file.originalname);
     req.body.foto= req.file.originalname;
-    //res.end();
     var error= await nuevousuario(req.body);
-    //console.log(error);
     res.redirect("/"); 
 }); 
 

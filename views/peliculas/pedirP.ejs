@@ -1,0 +1,19 @@
+<%- include("../template/encabezado") %>
+<%- include("../template/menu") %>
+
+<h2>Está seguro de pedir esta pelicula?</h2>
+
+<h4>Titulo: <%-peli.titulo %></h4>
+<p>Duracion: <%-peli.duracion %></p>
+<p>Productora: <%-peli.productora %></p>
+<img src="/images/<%-peli.foto%>" alt="">
+
+<form action="/pedirPelicula" method="post">
+    <input type="hidden" name="peliculaId" id="peliculaId" value="<%-peli.id%>">
+    <input type="hidden" name="peliculaTitulo" id="peliculaTitulo" value="<%-peli.titulo%>">
+    <input type="submit" value="PEDIR">
+</form>
+
+
+<%- include("../template/pie") %>
+
